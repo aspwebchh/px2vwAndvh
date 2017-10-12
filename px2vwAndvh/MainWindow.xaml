@@ -1,0 +1,47 @@
+﻿<Window x:Class="px2vwAndvh.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:px2vwAndvh"
+        mc:Ignorable="d"
+        Title="px2vwAndvh" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">宽</TextBlock>
+        <WrapPanel  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
+            <TextBox Width="50"></TextBox>
+            <TextBlock>px</TextBlock>
+        </WrapPanel>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">高</TextBlock>
+        <WrapPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
+            <TextBox Width="50"></TextBox>
+            <TextBlock>px</TextBlock>
+        </WrapPanel>
+
+        <WrapPanel  Grid.Row="0" Grid.Column="2" VerticalAlignment="Center">
+            <TextBlock>0</TextBlock>
+            <TextBlock>vw</TextBlock>
+        </WrapPanel>
+
+        <WrapPanel  Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
+            <TextBlock>0</TextBlock>
+            <TextBlock>vw</TextBlock>
+        </WrapPanel>
+
+
+        <Button Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click">
+            <TextBlock>参数设置</TextBlock>
+        </Button>
+    </Grid>
+</Window>
