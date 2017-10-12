@@ -17,13 +17,13 @@
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0"  VerticalAlignment="Center">宽度比例</TextBlock>
-        <TextBlock Grid.Row="1" Grid.Column="0"  VerticalAlignment="Center">高度比例</TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="0"  VerticalAlignment="Center">PSD宽度</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="0"  VerticalAlignment="Center">PSD高度</TextBlock>
 
-        <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Name="WidthScale" KeyUp="WidthScale_KeyUp"></TextBox>
+        <TextBox Grid.Row="0" Grid.Column="1" VerticalAlignment="Center" Name="Width" ></TextBox>
         <TextBox Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" Name="HeightScale"></TextBox>
 
-        <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click">
+        <Button Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="4" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click">
             <TextBlock>保存</TextBlock>
         </Button>
 

@@ -24,13 +24,12 @@ namespace px2vwAndvh {
 
        
         private void Button_Click( object sender, RoutedEventArgs e ) {
-            var withScale = WidthScale.Text;
-            var heightScale = HeightScale.Text;
+
 
         }
 
         private void WidthScale_KeyUp( object sender, KeyEventArgs e ) {
-            ValidTextBoxInputNum.Create(WidthScale).Validate();
+    
         }
     }
 }

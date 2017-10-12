@@ -8,40 +8,66 @@
         Title="px2vwAndvh" Height="350" Width="525" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="80"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition Width="80"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Row="0" Grid.Column="0" VerticalAlignment="Center">宽</TextBlock>
-        <WrapPanel  Grid.Row="0" Grid.Column="1" VerticalAlignment="Center">
-            <TextBox Width="50"></TextBox>
-            <TextBlock>px</TextBlock>
-        </WrapPanel>
 
-        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center">高</TextBlock>
+
+
+        <GroupBox  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,0,10,0" Padding="10,5,10,5" VerticalAlignment="Top" >
+            <GroupBox.Header>
+                <Label Content="首选项"/>
+            </GroupBox.Header>
+            <WrapPanel>
+                <TextBlock  VerticalAlignment="Center" Margin="0,0,10,0">PSD宽度</TextBlock>
+                <TextBox VerticalAlignment="Center" Width="80" Name="PsdWidth" LostFocus="PsdWidth_LostFocus" KeyUp="PsdWidth_KeyUp"></TextBox>
+                <TextBlock  Margin="0,0,25,0">px</TextBlock>
+                <TextBlock  VerticalAlignment="Center"  Margin="0,0,10,0">PSD高度</TextBlock>
+                <TextBox VerticalAlignment="Center" Width="80" Name="PsdHeight"  LostFocus="PsdHeight_LostFocus" KeyUp="PsdHeight_KeyUp"></TextBox>
+                <TextBlock  Margin="0,0,25,0">px</TextBlock>
+            </WrapPanel>
+        </GroupBox>
+
+
+
+
+
+        <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">宽度</TextBlock>
         <WrapPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
-            <TextBox Width="50"></TextBox>
+            <TextBox Width="80"></TextBox>
             <TextBlock>px</TextBlock>
         </WrapPanel>
 
-        <WrapPanel  Grid.Row="0" Grid.Column="2" VerticalAlignment="Center">
+        <TextBlock Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">结果</TextBlock>
+
+        <WrapPanel  Grid.Row="1" Grid.Column="3" VerticalAlignment="Center">
             <TextBlock>0</TextBlock>
             <TextBlock>vw</TextBlock>
         </WrapPanel>
 
-        <WrapPanel  Grid.Row="1" Grid.Column="2" VerticalAlignment="Center">
+
+
+        <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">高度</TextBlock>
+        <WrapPanel  Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
+            <TextBox Width="80"></TextBox>
+            <TextBlock>px</TextBlock>
+        </WrapPanel>
+
+        <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">结果</TextBlock>
+
+        <WrapPanel  Grid.Row="2" Grid.Column="3" VerticalAlignment="Center">
             <TextBlock>0</TextBlock>
-            <TextBlock>vw</TextBlock>
+            <TextBlock>vh</TextBlock>
         </WrapPanel>
 
 
-        <Button Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click">
-            <TextBlock>参数设置</TextBlock>
-        </Button>
+
     </Grid>
 </Window>

@@ -16,13 +16,14 @@ using System.Windows.Shapes;
 namespace px2vwAndvh {
     class ValidTextBoxInputNum {
         private string prevVal = "";
-        private TextBox textBox;
+        private Object textBox;
 
-        public ValidTextBoxInputNum(TextBox textBox) {
+        public ValidTextBoxInputNum(Object textBox) {
             this.textBox = textBox;
         }
 
         public void Validate() {
+            var textBox = this.textBox as TextBox;
             var text = textBox.Text;
             if( Common.IsNumeric(text) ) {
                 prevVal = text;
@@ -32,9 +33,9 @@ namespace px2vwAndvh {
             }
         }
 
-        private static Dictionary<TextBox, ValidTextBoxInputNum> dic = new Dictionary<TextBox, ValidTextBoxInputNum>();
+        private static Dictionary<Object, ValidTextBoxInputNum> dic = new Dictionary<Object, ValidTextBoxInputNum>();
 
-        public static ValidTextBoxInputNum Create( TextBox textBox ) {
+        public static ValidTextBoxInputNum Create( Object textBox ) {
             if( dic.ContainsKey(textBox)) {
                 return dic [textBox];
             }
