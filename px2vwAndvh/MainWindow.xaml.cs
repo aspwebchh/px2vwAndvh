@@ -12,7 +12,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.IO;
-
+using Forms = System.Windows.Forms;
 
 namespace px2vwAndvh {
     /// <summary>
@@ -21,12 +21,64 @@ namespace px2vwAndvh {
     public partial class MainWindow : Window {
         private PsdWidthAndHeight pwh;
 
+        private Forms.NotifyIcon notifyIcon;
+
+
+        private void Show( object sender, EventArgs e ) {
+            this.Show();
+            this.WindowState = WindowState.Normal;
+            this.Visibility = System.Windows.Visibility.Visible;
+            this.Activate();
+        }
+        
+
+        private void Close( object sender, EventArgs e ) {
+            this.Close();
+           // System.Windows.Application.Current.Shutdown();
+        }
+
+        private void MainWindow_StateChanged( object sender, EventArgs e ) {
+            if( WindowState == WindowState.Minimized) {
+                this.Hide();
+            } 
+        }
+
+        private void InitNotifyIcon() {
+            this.ShowInTaskbar = false;
+            this.StateChanged += MainWindow_StateChanged;
+
+            this.notifyIcon = new Forms.NotifyIcon();
+            this.notifyIcon.BalloonTipText = "px转vw/vh工具";
+            this.notifyIcon.ShowBalloonTip(2000);
+            this.notifyIcon.Text = "px转vw/vh工具";
+            this.notifyIcon.Icon = System.Drawing.Icon.ExtractAssociatedIcon(System.Windows.Forms.Application.ExecutablePath);
+            this.notifyIcon.Visible = true;
+            //打开菜单项
+            System.Windows.Forms.MenuItem open = new System.Windows.Forms.MenuItem("打开");
+            open.Click += new EventHandler(Show);
+            //退出菜单项
+            System.Windows.Forms.MenuItem exit = new System.Windows.Forms.MenuItem("退出");
+            exit.Click += new EventHandler(Close);
+            //关联托盘控件
+            System.Windows.Forms.MenuItem [] childen = new System.Windows.Forms.MenuItem [] { open, exit };
+            notifyIcon.ContextMenu = new System.Windows.Forms.ContextMenu(childen);
+
+            this.notifyIcon.MouseClick += new System.Windows.Forms.MouseEventHandler(( o, e ) => {
+                if( e.Button == Forms.MouseButtons.Left )
+                    this.Show(o, e);
+            });
+        }
+
+
+
         public MainWindow() {
             InitializeComponent();
 
             pwh = Config.GetPsdWidthAndHeight();
 
             this.FillPsdPixedTextBox();
+
+            this.InitNotifyIcon();
         }
 
         private void FillPsdPixedTextBox() {
@@ -51,6 +103,7 @@ namespace px2vwAndvh {
             var wh = getPsdWidthAndHeight();
             if( wh.IsValid ) {
                 Config.SavePsdWidthAndHeight(wh);
+                pwh = Config.GetPsdWidthAndHeight();
             }
         }
 
@@ -66,28 +119,30 @@ namespace px2vwAndvh {
             ValidTextBoxInputNum.Create(sender).Validate();
         }
 
-        private void PsdHeight_KeyUp( object sender, KeyEventArgs e ) {
+        private void PsdHeight_KeyUp( object sender,KeyEventArgs e ) {
             ValidTextBoxInputNum.Create(sender).Validate();
+        }
+
+        private void Process( TextBox pxTextBox, TextBlock resultText , float scale ) {
+            if( !pwh.IsValid ) {
+                MessageBox.Show("请设置首选项");
+                return;
+            }
+            ValidTextBoxInputNum.Create(pxTextBox).Validate();
+            var px = pxTextBox.Text;
+            if( float.TryParse(px, out var val) ) {
+                resultText.Text = ( Math.Round(scale * val, 1) ).ToString();
+            } else {
+                resultText.Text = "0";
+            }
         }
 
         private void Width_KeyUp( object sender, KeyEventArgs e ) {
-            ValidTextBoxInputNum.Create(sender).Validate();
-            var widthText = Width.Text;
-            if( float.TryParse(widthText,out var width)) {
-                ResultWidth.Text = (Math.Round( pwh.WidthScale() * width,1)).ToString();
-            } else {
-                ResultWidth.Text = "0";
-            }
+            Process(sender as TextBox, ResultWidth, pwh.WidthScale());
         }
 
         private void Height_KeyUp( object sender, KeyEventArgs e ) {
-            ValidTextBoxInputNum.Create(sender).Validate();
-            var heightText = Height.Text;
-            if( float.TryParse(heightText, out var height) ) {
-                ResultHeight.Text = ( Math.Round(pwh.HeightScale() * height, 1) ).ToString();
-            } else {
-                ResultHeight.Text = "0";
-            }
+            Process(sender as TextBox, ResultHeight, pwh.HeightScale());
         }
     }
 }

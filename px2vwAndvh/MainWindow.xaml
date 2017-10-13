@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:px2vwAndvh"
         mc:Ignorable="d"
-        Title="px2vwAndvh" Height="300" Width="525" WindowStartupLocation="CenterScreen">
+        Title="px2vwAndvh" Height="300" Width="525" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="100"></RowDefinition>
