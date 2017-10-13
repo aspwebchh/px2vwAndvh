@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:px2vwAndvh"
         mc:Ignorable="d"
-        Title="px2vwAndvh" Height="350" Width="525" WindowStartupLocation="CenterScreen">
+        Title="px2vwAndvh" Height="300" Width="525" WindowStartupLocation="CenterScreen">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="80"></RowDefinition>
+            <RowDefinition Height="100"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
             <RowDefinition Height="50"></RowDefinition>
         </Grid.RowDefinitions>
@@ -21,17 +21,17 @@
 
 
 
-        <GroupBox  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,0,10,0" Padding="10,5,10,5" VerticalAlignment="Top" >
+        <GroupBox  Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="4" Margin="10,0,10,0" Padding="10,5,10,5" VerticalAlignment="Top">
             <GroupBox.Header>
                 <Label Content="首选项"/>
             </GroupBox.Header>
             <WrapPanel>
                 <TextBlock  VerticalAlignment="Center" Margin="0,0,10,0">PSD宽度</TextBlock>
                 <TextBox VerticalAlignment="Center" Width="80" Name="PsdWidth" LostFocus="PsdWidth_LostFocus" KeyUp="PsdWidth_KeyUp"></TextBox>
-                <TextBlock  Margin="0,0,25,0">px</TextBlock>
+                <TextBlock  Margin="5,0,25,0">px</TextBlock>
                 <TextBlock  VerticalAlignment="Center"  Margin="0,0,10,0">PSD高度</TextBlock>
                 <TextBox VerticalAlignment="Center" Width="80" Name="PsdHeight"  LostFocus="PsdHeight_LostFocus" KeyUp="PsdHeight_KeyUp"></TextBox>
-                <TextBlock  Margin="0,0,25,0">px</TextBlock>
+                <TextBlock  Margin="5,0,25,0">px</TextBlock>
             </WrapPanel>
         </GroupBox>
 
@@ -41,30 +41,30 @@
 
         <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">宽度</TextBlock>
         <WrapPanel  Grid.Row="1" Grid.Column="1" VerticalAlignment="Center">
-            <TextBox Width="80"></TextBox>
-            <TextBlock>px</TextBlock>
+            <TextBox Width="80" Name="Width" KeyUp="Width_KeyUp"></TextBox>
+            <TextBlock Margin="5,0,0,0">px</TextBlock>
         </WrapPanel>
 
         <TextBlock Grid.Row="1" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">结果</TextBlock>
 
         <WrapPanel  Grid.Row="1" Grid.Column="3" VerticalAlignment="Center">
-            <TextBlock>0</TextBlock>
-            <TextBlock>vw</TextBlock>
+            <TextBlock Name="ResultWidth"  Foreground="Red">0</TextBlock>
+            <TextBlock Margin="5,0,0,0">vw</TextBlock>
         </WrapPanel>
 
 
 
         <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Center">高度</TextBlock>
         <WrapPanel  Grid.Row="2" Grid.Column="1" VerticalAlignment="Center">
-            <TextBox Width="80"></TextBox>
-            <TextBlock>px</TextBlock>
+            <TextBox Width="80" Name="Height" KeyUp="Height_KeyUp"></TextBox>
+            <TextBlock Margin="5,0,0,0">px</TextBlock>
         </WrapPanel>
 
         <TextBlock Grid.Row="2" Grid.Column="2" VerticalAlignment="Center" HorizontalAlignment="Center">结果</TextBlock>
 
         <WrapPanel  Grid.Row="2" Grid.Column="3" VerticalAlignment="Center">
-            <TextBlock>0</TextBlock>
-            <TextBlock>vh</TextBlock>
+            <TextBlock Name="ResultHeight"  Foreground="Red">0</TextBlock>
+            <TextBlock Margin="5,0,0,0">vh</TextBlock>
         </WrapPanel>
 
 

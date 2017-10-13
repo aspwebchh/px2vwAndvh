@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+
 
 namespace px2vwAndvh
 {
@@ -14,5 +14,13 @@ namespace px2vwAndvh
         }
 
         public PsdWidthAndHeight() { }
+
+        public float WidthScale() {
+            return 100 / this.Width;
+        }
+
+        public float HeightScale() {
+            return 100 / this.Height;
+        }
     }
 }

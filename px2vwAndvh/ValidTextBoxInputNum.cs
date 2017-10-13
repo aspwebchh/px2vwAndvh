@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -25,7 +24,7 @@ namespace px2vwAndvh {
         public void Validate() {
             var textBox = this.textBox as TextBox;
             var text = textBox.Text;
-            if( Common.IsNumeric(text) ) {
+            if( Common.IsNumeric(text) || string.IsNullOrEmpty(text) ) {
                 prevVal = text;
             } else {
                 textBox.Text = prevVal;

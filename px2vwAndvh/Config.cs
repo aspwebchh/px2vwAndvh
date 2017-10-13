@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.IO;
 using System.Text.RegularExpressions;
 
@@ -19,7 +18,7 @@ namespace px2vwAndvh
         public static void SavePsdWidthAndHeight(PsdWidthAndHeight wh)
         {
 
-            using (var fs = new FileStream(ConfigFilePath(), FileMode.OpenOrCreate))
+            using (var fs = new FileStream(ConfigFilePath(), FileMode.Create))
             {
                 using (var sw = new StreamWriter(fs))
                 {
@@ -41,7 +40,7 @@ namespace px2vwAndvh
                 using (var sr = new StreamReader(fs))
                 {
                     var result = sr.ReadToEnd();
-                    var regex = new Regex(@"(?<a>\d+),(?<b>\d+)");
+                    var regex = new Regex(@"(?<a>\d*.?\d*),(?<b>\d*.?\d*)");
                     if( !regex.IsMatch(result))
                     {
                         return new PsdWidthAndHeight();
