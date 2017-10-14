@@ -23,12 +23,16 @@ namespace px2vwAndvh {
 
         private Forms.NotifyIcon notifyIcon;
 
-
-        private void Show( object sender, EventArgs e ) {
+        public void ForceShow()
+        {
             this.Show();
             this.WindowState = WindowState.Normal;
             this.Visibility = System.Windows.Visibility.Visible;
             this.Activate();
+        }
+
+        private void Show( object sender, EventArgs e ) {
+            this.ForceShow();
         }
         
 
@@ -37,16 +41,8 @@ namespace px2vwAndvh {
            // System.Windows.Application.Current.Shutdown();
         }
 
-        private void MainWindow_StateChanged( object sender, EventArgs e ) {
-            if( WindowState == WindowState.Minimized) {
-                this.Hide();
-            } 
-        }
 
         private void InitNotifyIcon() {
-            this.ShowInTaskbar = false;
-            this.StateChanged += MainWindow_StateChanged;
-
             this.notifyIcon = new Forms.NotifyIcon();
             this.notifyIcon.BalloonTipText = "px转vw/vh工具";
             this.notifyIcon.ShowBalloonTip(2000);
@@ -79,6 +75,13 @@ namespace px2vwAndvh {
             this.FillPsdPixedTextBox();
 
             this.InitNotifyIcon();
+
+            this.Closed += MainWindow_Closed;
+        }
+
+        private void MainWindow_Closed(object sender, EventArgs e)
+        {
+            notifyIcon.Visible = false;
         }
 
         private void FillPsdPixedTextBox() {
