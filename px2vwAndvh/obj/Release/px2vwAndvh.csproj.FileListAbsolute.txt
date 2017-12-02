@@ -1,0 +1,14 @@
+C:\dev\px2vwAndvh\px2vwAndvh\obj\Release\MainWindow.g.cs
+C:\dev\px2vwAndvh\px2vwAndvh\obj\Release\App.g.cs
+C:\dev\px2vwAndvh\px2vwAndvh\obj\Release\px2vwAndvh_MarkupCompile.cache
+C:\dev\px2vwAndvh\px2vwAndvh\obj\Release\px2vwAndvh_MarkupCompile.lref
+C:\dev\px2vwAndvh\px2vwAndvh\bin\Release\px2vwAndvh.exe.config
+C:\dev\px2vwAndvh\px2vwAndvh\bin\Release\px2vwAndvh.exe
+C:\dev\px2vwAndvh\px2vwAndvh\bin\Release\px2vwAndvh.pdb
+C:\dev\px2vwAndvh\px2vwAndvh\obj\Release\App.baml
+C:\dev\px2vwAndvh\px2vwAndvh\obj\Release\MainWindow.baml
+C:\dev\px2vwAndvh\px2vwAndvh\obj\Release\px2vwAndvh.g.resources
+C:\dev\px2vwAndvh\px2vwAndvh\obj\Release\px2vwAndvh.Properties.Resources.resources
+C:\dev\px2vwAndvh\px2vwAndvh\obj\Release\px2vwAndvh.csproj.GenerateResource.Cache
+C:\dev\px2vwAndvh\px2vwAndvh\obj\Release\px2vwAndvh.exe
+C:\dev\px2vwAndvh\px2vwAndvh\obj\Release\px2vwAndvh.pdb

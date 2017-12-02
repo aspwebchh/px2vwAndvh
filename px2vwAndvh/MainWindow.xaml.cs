@@ -133,7 +133,8 @@ namespace px2vwAndvh {
             }
             ValidTextBoxInputNum.Create(pxTextBox).Validate();
             var px = pxTextBox.Text;
-            if( float.TryParse(px, out var val) ) {
+            float val;
+            if( float.TryParse(px, out val) ) {
                 resultText.Text = ( Math.Round(scale * val, 1) ).ToString();
             } else {
                 resultText.Text = "0";
