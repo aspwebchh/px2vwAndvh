@@ -77,6 +77,8 @@ namespace px2vwAndvh {
             this.InitNotifyIcon();
 
             this.Closed += MainWindow_Closed;
+
+            this.Topmost = true;
         }
 
         private void MainWindow_Closed(object sender, EventArgs e)
